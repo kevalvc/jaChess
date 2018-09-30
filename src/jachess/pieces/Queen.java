@@ -18,122 +18,29 @@ public class Queen extends Piece {
         possiblemoves.clear();
 
         //        NorthEast
-        int movx = x-1, movy = y+1;
-        while(movx >= 0 && movy < 8) {
-            if (state[movx][movy].getPiece() == null) {
-                possiblemoves.add(state[movx][movy]);
-            } else if (state[movx][movy].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[movx][movy]);
-                break;
-            }
-            movx--;
-            movy++;
-        }
+        Parent.northeast(state, x, y);
 
 //        NorthWest
-        movx = x-1; movy = y-1;
-        while(movx >= 0 && movy >=0) {
-            if (state[movx][movy].getPiece() == null) {
-                possiblemoves.add(state[movx][movy]);
-            } else if (state[movx][movy].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[movx][movy]);
-                break;
-            }
-            movx--;
-            movy--;
-        }
+        Parent.northwest(state, x, y);
 
 //        SouthWest
-        movx = x+1; movy = y-1;
-        while(movx < 8 && movy >= 0) {
-            if (state[movx][movy].getPiece() == null) {
-                possiblemoves.add(state[movx][movy]);
-            } else if (state[movx][movy].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[movx][movy]);
-                break;
-            }
-            movx++;
-            movy--;
-        }
+        Parent.southwest(state, x, y);
 
 //        SouthEast
-        movx = x+1; movy = y+1;
-        while(movx < 8 && movy < 8) {
-            if (state[movx][movy].getPiece() == null) {
-                possiblemoves.add(state[movx][movy]);
-            } else if (state[movx][movy].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[movx][movy]);
-                break;
-            }
-            movx++;
-            movy++;
-        }
+        Parent.southeast(state, x, y);
 
 
 //        Above
-        movx = x-1;
-        while(movx >= 0) {
-            if (state[movx][y].getPiece() == null) {
-                possiblemoves.add(state[movx][y]);
-            } else if (state[movx][y].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[movx][y]);
-                break;
-            }
-            movx--;
-        }
+        Parent.above(state, x, y);
 
 //        Below
-        movx = x+1;
-        while(movx < 8) {
-            if (state[movx][y].getPiece() == null) {
-                possiblemoves.add(state[movx][y]);
-            } else if (state[movx][y].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[movx][y]);
-                break;
-            }
-            movx++;
-        }
+        Parent.below(state, x, y);
 
 //        Left
-        movy = y-1;
-        while(movy >= 0) {
-            if (state[x][movy].getPiece() == null) {
-                possiblemoves.add(state[x][movy]);
-            } else if (state[x][movy].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[x][movy]);
-                break;
-            }
-            movy--;
-        }
+        Parent.left(state, x, y);
 
 //        Right
-        movy = y+1;
-        while(movy < 8) {
-            if (state[x][movy].getPiece() == null) {
-                possiblemoves.add(state[x][movy]);
-            } else if (state[x][movy].getPiece().getColor() == this.getColor()) {
-                break;
-            } else {
-                possiblemoves.add(state[x][movy]);
-                break;
-            }
-            movy++;
-        }
-
+        Parent.right(state, x, y);
 
         return possiblemoves;
     }
